@@ -24,3 +24,16 @@ const userRef = db.collection("users").add({
 )
 
 console.log(userRef)
+
+const data = db.collection("users").doc("9mUFxxKdprofM4QvIKEE")
+data.get()
+    .then(doc => {
+    if (!doc.exists) {
+      console.log('No such document!');
+    } else {
+      console.log('Document data:', doc.data());
+    }
+  })
+  .catch(err => {
+    console.log('Error getting document', err);
+  });
